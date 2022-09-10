@@ -102,6 +102,26 @@ body {
   height: 6em;
 }
 
+#generated-message-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#add-favorite-button {
+  background-color: #134d71;
+  color:#ffffff;
+  font-size: 1.3em;
+  font-weight: lighter;
+  border-radius: 0.3em;
+  width: 11em;
+  height: 1.5em;
+  border: none;
+  margin-top: 1em;
+}
+
 .hidden {
   display: none;
 }
