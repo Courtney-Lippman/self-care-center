@@ -4,6 +4,20 @@
 }
 
 body {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  background: rgb(19,77,113);
+  background: linear-gradient(180deg, rgba(19,77,113,1) 16%, rgba(120,167,198,1) 57%, rgba(247,228,191,1) 100%);
+  background-attachment: fixed;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+.main-page-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,10 +25,10 @@ body {
   background: rgb(19,77,113);
   background: linear-gradient(180deg, rgba(19,77,113,1) 16%, rgba(120,167,198,1) 57%, rgba(247,228,191,1) 100%);
   background-attachment: fixed;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 #view-favorite-button {
