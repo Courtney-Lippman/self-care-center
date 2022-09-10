@@ -32,30 +32,28 @@ var mantraList = [
   'I am the sky, the rest is weather.'
 ]
 var currentMessage
+var list
 
 var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
 var receiveMessageButton = document.querySelector('#receive-message')
 var logoSection = document.querySelector('#logo-space')
 
-mantraRadio.addEventListener('click', generateMantra)
-affirmationRadio.addEventListener('click', generateAffirmation)
-receiveMessageButton.addEventListener('click', displayMessage)
+mantraRadio.addEventListener('click', selectMantra)
+affirmationRadio.addEventListener('click', selectAffirmation)
+receiveMessageButton.addEventListener('click', generateMessage)
 
-function generateMantra () {
-  var mantraindexNumber = Math.floor(Math.random() * mantraList.length)
-  return currentMessage = mantraList[mantraindexNumber]
+function selectMantra () {
+  return list = mantraList
 }
 
-function generateAffirmation () {
-  var affirmationindexNumber = Math.floor(
-    Math.random() * affirmationList.length
-  )
-  return currentMessage = affirmationList[affirmationindexNumber]
+function selectAffirmation () {
+  return list = affirmationList
 }
 
-function displayMessage () {
-  console.log(currentMessage)
+function generateMessage () {
+  var indexNumber = Math.floor(Math.random() * list.length)
+  currentMessage = list[indexNumber]
   logoSection.innerHTML = ''
   logoSection.innerHTML += `<p id='message-text'>${currentMessage}</p>`
   return logoSection.innerHTML
