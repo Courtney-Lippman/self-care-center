@@ -147,6 +147,18 @@ border-color: #f7e4bf;
   margin-top: 1em;
 }
 
+.home-button {
+  background-color: #134d71;
+  color:#ffffff;
+  font-size: 0.9em;
+  font-weight: lighter;
+  border-radius: 0.3em;
+  width: 10.5em;
+  height: 1.5em;
+  border-width: thin;
+  border-color: #f7e4bf;
+}
+
 .hidden {
   display: none;
 }
