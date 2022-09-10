@@ -40,11 +40,13 @@ var affirmationRadio = document.querySelector('#affirmation')
 var receiveMessageButton = document.querySelector('#receive-message')
 var logoSection = document.querySelector('#logo-space')
 var favoriteButton = document.querySelector('#add-favorite-button')
+var viewFavoritesButton = document.querySelector('#view-favorite-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
 receiveMessageButton.addEventListener('click', generateMessage)
 favoriteButton.addEventListener('click', addToFavoriteList)
+viewFavoritesButton.addEventListener('click', displayFavoritesview)
 
 function selectMantra () {
   return list = mantraList
@@ -66,4 +68,7 @@ function generateMessage () {
 function addToFavoriteList () {
   favoriteList.push(currentMessage)
   console.log(favoriteList)
+}
+
+function displayFavoritesview () {
 }
