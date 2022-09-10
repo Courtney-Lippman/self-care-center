@@ -41,6 +41,7 @@ var receiveMessageButton = document.querySelector('#receive-message')
 var logoSection = document.querySelector('#logo-space')
 var favoriteButton = document.querySelector('#add-favorite-button')
 var viewFavoritesButton = document.querySelector('#view-favorite-button')
+var mainPageView = document.querySelector('.main-page-view')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
@@ -71,4 +72,5 @@ function addToFavoriteList () {
 }
 
 function displayFavoritesview () {
+  mainPageView.classList.add('hidden')
 }
