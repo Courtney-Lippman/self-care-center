@@ -31,6 +31,7 @@ var mantraList = [
   'Onward and upward.',
   'I am the sky, the rest is weather.'
 ]
+var favoriteList = []
 var currentMessage
 var list
 
@@ -38,10 +39,12 @@ var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
 var receiveMessageButton = document.querySelector('#receive-message')
 var logoSection = document.querySelector('#logo-space')
+var favoriteButton = document.querySelector('#add-favorite-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
 receiveMessageButton.addEventListener('click', generateMessage)
+favoriteButton.addEventListener('click', addToFavoriteList)
 
 function selectMantra () {
   return list = mantraList
@@ -55,6 +58,12 @@ function generateMessage () {
   var indexNumber = Math.floor(Math.random() * list.length)
   currentMessage = list[indexNumber]
   logoSection.innerHTML = ''
-  logoSection.innerHTML += `<div id='generated-message-section'><p id='message-text'>${currentMessage}</p><button id='add-favorite-button'>Add To Favorites</button></div>`
+  logoSection.innerHTML += `<p id='message-text'>${currentMessage}</p>`
+  favoriteButton.classList.remove('hidden')
   return logoSection.innerHTML
+}
+
+function addToFavoriteList () {
+  favoriteList.push(currentMessage)
+  console.log(favoriteList)
 }
