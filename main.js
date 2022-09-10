@@ -36,6 +36,7 @@ var currentMessage
 var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
 var receiveMessageButton = document.querySelector('#receive-message')
+var logoSection = document.querySelector('#logo-space')
 
 mantraRadio.addEventListener('click', generateMantra)
 affirmationRadio.addEventListener('click', generateAffirmation)
@@ -54,5 +55,8 @@ function generateAffirmation () {
 }
 
 function displayMessage () {
-  = currentMessage
+  console.log(currentMessage)
+  logoSection.innerHTML = ''
+  logoSection.innerHTML += `<p id='message-text'>${currentMessage}</p>`
+  return logoSection.innerHTML
 }
