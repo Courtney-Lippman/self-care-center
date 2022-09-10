@@ -55,6 +55,8 @@ function generateAffirmation () {
 }
 
 function displayMessage () {
-
-  = currentMessage
+  console.log(currentMessage)
+  logoSection.innerHTML = ''
+  logoSection.innerHTML += `<p id='message-text'>${currentMessage}</p>`
+  return logoSection.innerHTML
 }
