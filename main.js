@@ -59,6 +59,7 @@ function selectAffirmation () {
 }
 
 function generateMessage () {
+  event.preventDefault()
   var indexNumber = Math.floor(Math.random() * list.length)
   currentMessage = list[indexNumber]
   logoSection.innerHTML = ''
@@ -68,13 +69,18 @@ function generateMessage () {
 }
 
 function addToFavoriteList () {
+  event.preventDefault()
   favoriteList.push(currentMessage)
   console.log(favoriteList)
 }
 
 function displayFavoritesview () {
+  event.preventDefault()
   mainPageView.classList.add('hidden')
   favoritesPageView.classList.remove('hidden')
-
-
+  // favoritesPageView.innerHTML = ''
+  for (var i = 0; i < favoriteList.length; i++) {
+    favoritesPageView.innerHTML += `<p>${favoriteList[i]}</p>`
+  }
+  return favoritesPageView.innerHTML
 }
