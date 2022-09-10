@@ -55,6 +55,6 @@ function generateMessage () {
   var indexNumber = Math.floor(Math.random() * list.length)
   currentMessage = list[indexNumber]
   logoSection.innerHTML = ''
-  logoSection.innerHTML += `<p id='message-text'>${currentMessage}</p>`
+  logoSection.innerHTML += `<div id='generated-message-section'><p id='message-text'>${currentMessage}</p><button id='add-favorite-button'>Add To Favorites</button></div>`
   return logoSection.innerHTML
 }
