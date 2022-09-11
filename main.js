@@ -35,6 +35,7 @@ var favoriteList = []
 var favoriteListWithRadio = []
 var currentMessage
 var list
+var deleteButton
 
 var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
@@ -89,12 +90,15 @@ function displayFavoritesview () {
       <button class= 'delete-button' id= 'delete-buttons'>Delete</button>
       <p class='message-space'>${favoriteList[i]}</p>
     </div>`
-
     // favoriteListWithRadio.push(favoritesPageView.innerHTML)
   }
   deleteButton = document.querySelectorAll('#delete-buttons')
-  console.log(deleteButton)
-  deleteButton.addEventListener('click', deleteMessage)
+  console.log('deleteButton var: ', deleteButton)
+
+  for (var i = 0; i < deleteButton.length; i++) {
+    return i.addEventListener('click', deleteMessage)
+  }
+  // deleteButton.addEventListener('click', deleteMessage)
   // console.log(favoriteListWithRadio)
   return favoritesPageView.innerHTML
 }
