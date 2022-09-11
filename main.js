@@ -44,6 +44,7 @@ var viewFavoritesButton = document.querySelector('#view-favorite-button')
 var mainPageView = document.querySelector('.main-page-view')
 var favoritesPageView = document.querySelector('.favorites-page-view')
 var homeButton = document.querySelector('.home-button')
+var deleteButton = document.querySelector('.delete-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
@@ -51,7 +52,8 @@ receiveMessageButton.addEventListener('click', generateMessage)
 favoriteButton.addEventListener('click', addToFavoriteList)
 viewFavoritesButton.addEventListener('click', displayFavoritesview)
 homeButton.addEventListener('click', displayMainPageView)
-
+favoritesPageView.addEventListener('click', selectMessage)
+deleteButton.addEventListener('click', deleteMessage)
 function selectMantra () {
   return list = mantraList
 }
@@ -78,9 +80,10 @@ function displayFavoritesview () {
   mainPageView.classList.add('hidden')
   favoritesPageView.classList.remove('hidden')
   homeButton.classList.remove('hidden')
+  deleteButton.classList.remove('hidden')
   favoritesPageView.innerHTML = ''
   for (var i = 0; i < favoriteList.length; i++) {
-    favoritesPageView.innerHTML += `<p>${favoriteList[i]}</p>`
+    favoritesPageView.innerHTML += `<input type= 'radio' id= '${favoriteList[i]}' name='select-message' value='${favoriteList[i]}'<label for='${favoriteList[i]}'>${favoriteList[i]}</label>`
   }
   return favoritesPageView.innerHTML
 }
@@ -89,4 +92,13 @@ function displayMainPageView () {
   mainPageView.classList.remove('hidden')
   favoritesPageView.classList.add('hidden')
   homeButton.classList.add('hidden')
+  deleteButton.classList.add('hidden')
+}
+
+function selectMessage () {
+  console.log(event.target.parentNode.childNodes)
+}
+
+function deleteMessage () {
+  console.log('deleted')
 }
