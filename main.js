@@ -87,19 +87,10 @@ function displayFavoritesview () {
   for (var i = 0; i < favoriteList.length; i++) {
     favoritesPageView.innerHTML += `
     <div class='message-space' id= '${favoriteList[i]}'>
-      <button class= 'delete-button' id= 'delete-buttons'>Delete</button>
-      <p class='message-space'>${favoriteList[i]}</p>
+    <input type='checkbox' name='message-selector' value= '${favoriteList[i]}'/> ${favoriteList[i]}
     </div>`
-    // favoriteListWithRadio.push(favoritesPageView.innerHTML)
   }
-  deleteButton = document.querySelectorAll('#delete-buttons')
-  console.log('deleteButton var: ', deleteButton)
 
-  for (var i = 0; i < deleteButton.length; i++) {
-    return i.addEventListener('click', deleteMessage)
-  }
-  // deleteButton.addEventListener('click', deleteMessage)
-  // console.log(favoriteListWithRadio)
   return favoritesPageView.innerHTML
 }
 
