@@ -46,6 +46,7 @@ var viewFavoritesButton = document.querySelector('#view-favorite-button')
 var mainPageView = document.querySelector('.main-page-view')
 var favoritesPageView = document.querySelector('.favorites-page-view')
 var homeButton = document.querySelector('.home-button')
+var deleteButton = document.querySelector('.delete-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
@@ -54,7 +55,7 @@ favoriteButton.addEventListener('click', addToFavoriteList)
 viewFavoritesButton.addEventListener('click', displayFavoritesview)
 homeButton.addEventListener('click', displayMainPageView)
 // favoritesPageView.addEventListener('click', selectMessage)
-// deleteButton.addEventListener('click', deleteMessage)
+deleteButton.addEventListener('click', deleteMessage)
 // favoritesPageView.addEventListener('click', deleteMessage)
 function selectMantra () {
   return list = mantraList
@@ -82,12 +83,13 @@ function displayFavoritesview () {
   mainPageView.classList.add('hidden')
   favoritesPageView.classList.remove('hidden')
   homeButton.classList.remove('hidden')
+  deleteButton.classList.remove('hidden')
 
   favoritesPageView.innerHTML = ''
   for (var i = 0; i < favoriteList.length; i++) {
     favoritesPageView.innerHTML += `
     <div class='message-space' id= '${favoriteList[i]}'>
-    <input type='checkbox' name='message-selector' value= '${favoriteList[i]}'/> ${favoriteList[i]}
+    <input class = 'check-box' type='checkbox' name='message-selector' value= '${favoriteList[i]}'/> ${favoriteList[i]}
     </div>`
   }
 
@@ -101,17 +103,21 @@ function displayMainPageView () {
   deleteButton.classList.add('hidden')
 }
 
-// function selectMessage () {
-// event.target.parentNode.id
-// }
 function deleteMessage () {
+  var allCheckBoxes = document.querySelectorAll('.check-box')
+  console.log('allCheckBoxes: ', allCheckBoxes)
+
+  for (var i = 0; i < allCheckBoxes.length; i++) {
+    console.log('allCheckBoxes[i]: ', allCheckBoxes[i])
+    console.log('allCheckBoxes[i].checked: ', allCheckBoxes[i].checked)
+    if (allCheckBoxes[i].checked === true) {
+      var checkBoxValue = allCheckBoxes[i].defaultValue
+    }
+  }
   for (var i = 0; i < favoriteList.length; i++) {
-    console.log('event.target.parentNode: ', event.target.parentNode.id)
-    console.log('favoriteList[i]: ', favoriteList[i])
-    if (favoriteList[i] === event.target.parentNode.id) {
-      console.log('hello')
+    if (checkBoxValue === favoriteList[i]) {
       favoriteList.splice(i, 1)
     }
-    // displayFavoritesview()
   }
+  displayFavoritesview()
 }
