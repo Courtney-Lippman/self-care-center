@@ -45,7 +45,6 @@ var viewFavoritesButton = document.querySelector('#view-favorite-button')
 var mainPageView = document.querySelector('.main-page-view')
 var favoritesPageView = document.querySelector('.favorites-page-view')
 var homeButton = document.querySelector('.home-button')
-var deleteButton = document.querySelector('.delete-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
@@ -55,7 +54,7 @@ viewFavoritesButton.addEventListener('click', displayFavoritesview)
 homeButton.addEventListener('click', displayMainPageView)
 // favoritesPageView.addEventListener('click', selectMessage)
 // deleteButton.addEventListener('click', deleteMessage)
-favoritesPageView.addEventListener('click', deleteMessage)
+// favoritesPageView.addEventListener('click', deleteMessage)
 function selectMantra () {
   return list = mantraList
 }
@@ -82,13 +81,21 @@ function displayFavoritesview () {
   mainPageView.classList.add('hidden')
   favoritesPageView.classList.remove('hidden')
   homeButton.classList.remove('hidden')
-  deleteButton.classList.remove('hidden')
+
   favoritesPageView.innerHTML = ''
   for (var i = 0; i < favoriteList.length; i++) {
-    favoritesPageView.innerHTML += `<div class='message-space'> <input type= 'radio' id= '${favoriteList[i]}' name='select-message' value='${favoriteList[i]}'<label for='${favoriteList[i]}'>${favoriteList[i]}</label> </div>`
-    favoriteListWithRadio.push(favoritesPageView.innerHTML)
+    favoritesPageView.innerHTML += `
+    <div class='message-space' id= '${favoriteList[i]}'>
+      <button class= 'delete-button' id= 'delete-buttons'>Delete</button>
+      <p class='message-space'>${favoriteList[i]}</p>
+    </div>`
+
+    // favoriteListWithRadio.push(favoritesPageView.innerHTML)
   }
-  console.log(favoriteListWithRadio)
+  deleteButton = document.querySelectorAll('#delete-buttons')
+  console.log(deleteButton)
+  deleteButton.addEventListener('click', deleteMessage)
+  // console.log(favoriteListWithRadio)
   return favoritesPageView.innerHTML
 }
 
@@ -107,6 +114,7 @@ function deleteMessage () {
     console.log('event.target.parentNode: ', event.target.parentNode.id)
     console.log('favoriteList[i]: ', favoriteList[i])
     if (favoriteList[i] === event.target.parentNode.id) {
+      console.log('hello')
       favoriteList.splice(i, 1)
     }
     // displayFavoritesview()
