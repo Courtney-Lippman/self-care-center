@@ -83,7 +83,7 @@ function displayFavoritesview () {
   deleteButton.classList.remove('hidden')
   favoritesPageView.innerHTML = ''
   for (var i = 0; i < favoriteList.length; i++) {
-    favoritesPageView.innerHTML += `<input type= 'radio' id= '${favoriteList[i]}' name='select-message' value='${favoriteList[i]}'<label for='${favoriteList[i]}'>${favoriteList[i]}</label>`
+    favoritesPageView.innerHTML += `<div class='message-space'> <input type= 'radio' id= '${favoriteList[i]}' name='select-message' value='${favoriteList[i]}'<label for='${favoriteList[i]}'>${favoriteList[i]}</label> </div>`
   }
   return favoritesPageView.innerHTML
 }
