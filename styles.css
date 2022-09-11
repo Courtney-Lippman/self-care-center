@@ -4,6 +4,12 @@
 }
 
 body {
+  background: rgb(19,77,113);
+  background: linear-gradient(180deg, rgba(19,77,113,1) 16%, rgba(120,167,198,1) 57%, rgba(247,228,191,1) 100%);
+  background-attachment: fixed;
+}
+
+.main-page-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,13 +17,29 @@ body {
   background: rgb(19,77,113);
   background: linear-gradient(180deg, rgba(19,77,113,1) 16%, rgba(120,167,198,1) 57%, rgba(247,228,191,1) 100%);
   background-attachment: fixed;
+}
+
+.favorites-page-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
+.message-space {
+  margin: 1em;
+}
 
+#view-favorite-button {
+background-color: #134d71;
+color:#ffffff;
+font-size: 0.9em;
+font-weight: lighter;
+border-radius: 0.3em;
+width: 10.5em;
+height: 1.5em;
+border-width: thin;
+border-color: #f7e4bf;
+}
 
 #self-care-center-title {
   font-size: 2.5em;
@@ -103,10 +125,6 @@ body {
   height: 6em;
 }
 
-#add-favorite-button {
-  margin-top: 1em;
-}
-
 #generated-message-section {
   display: flex;
   flex-direction: column;
@@ -125,6 +143,35 @@ body {
   height: 1.5em;
   border: none;
   margin-top: 1em;
+}
+
+#fav-view-buttons-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-button {
+  background-color: #134d71;
+  color:#ffffff;
+  font-size: 0.9em;
+  font-weight: lighter;
+  border-radius: 0.3em;
+  width: 10.5em;
+  height: 1.5em;
+  border-width: thin;
+  border-color: #f7e4bf;
+}
+
+.delete-button {
+  background-color: #134d71;
+  color:#ffffff;
+  font-size: 0.9em;
+  font-weight: lighter;
+  border-radius: 0.3em;
+  width: 10.5em;
+  height: 1.5em;
+  border-width: thin;
+  border-color: #f7e4bf;
 }
 
 .hidden {

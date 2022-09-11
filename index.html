@@ -6,29 +6,37 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body id='entire-page'>
-    <heading id='self-care-center-title'>&#10024; Self Care Center &#10024;</heading>
-    <section id='what-type-of-message'>
-      <h1 id='which-type-of-message-text'>Which type of message?</h1>
-      <section id='all-type-of-message-buttons'>
-        <section id='affirmation-mantra-buttons'>
-          <div class='radio-and-label'>
-            <input type='radio' id='affirmation' name='choose-message' value='affirmation'>
-            <label for='affirmation'>affirmation</label>
-          </div>
-          <div class='radio-and-label'>
-            <input type='radio' id='mantra' name='choose-message' value='mantra'>
-            <label for="mantra">mantra</label>
-          </div>
-        </section>
-        <section class='button-wrapper'>
-          <button id='receive-message'>Receive Message</button>
+    <section id='fav-view-buttons-section'>
+      <button class='home-button hidden'>Home</button>
+      <button class='delete-button hidden'>Delete</button>
+    </section>
+    <section class= 'favorites-page-view hidden'></section>
+    <section class='main-page-view'>
+      <heading id='self-care-center-title'>&#10024; Self Care Center &#10024;</heading>
+      <button id='view-favorite-button'>View Favorites</button>
+      <section id='what-type-of-message'>
+        <h1 id='which-type-of-message-text'>Which type of message?</h1>
+        <section id='all-type-of-message-buttons'>
+          <section id='affirmation-mantra-buttons'>
+            <div class='radio-and-label'>
+              <input type='radio' id='affirmation' name='choose-message' value='affirmation'>
+              <label for='affirmation'>affirmation</label>
+            </div>
+            <div class='radio-and-label'>
+              <input type='radio' id='mantra' name='choose-message' value='mantra'>
+              <label for="mantra">mantra</label>
+            </div>
+          </section>
+          <section class='button-wrapper'>
+            <button id='receive-message'>Receive Message</button>
+          </section>
         </section>
       </section>
+      <section id='logo-space'>
+        <img id ='logo-img' src="assets/meditate.svg" alt="Animated person sitting in a meditative postion with half rings over the head to suggest that the person is meditating.">
+      </section>
+      <button class = 'hidden' id= 'add-favorite-button'>Add To Favorites</button>
+      <script type="text/javascript" src="main.js"></script>
     </section>
-    <section id='logo-space'>
-      <img id ='logo-img' src="assets/meditate.svg" alt="Animated person sitting in a meditative postion with half rings over the head to suggest that the person is meditating.">
-    </section>
-    <button class = 'hidden' id= 'add-favorite-button'>Add To Favorites</button>
-    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

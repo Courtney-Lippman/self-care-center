@@ -32,20 +32,31 @@ var mantraList = [
   'I am the sky, the rest is weather.'
 ]
 var favoriteList = []
+var favoriteListWithRadio = []
 var currentMessage
 var list
+var deleteButton
 
 var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
 var receiveMessageButton = document.querySelector('#receive-message')
 var logoSection = document.querySelector('#logo-space')
 var favoriteButton = document.querySelector('#add-favorite-button')
+var viewFavoritesButton = document.querySelector('#view-favorite-button')
+var mainPageView = document.querySelector('.main-page-view')
+var favoritesPageView = document.querySelector('.favorites-page-view')
+var homeButton = document.querySelector('.home-button')
+var deleteButton = document.querySelector('.delete-button')
 
 mantraRadio.addEventListener('click', selectMantra)
 affirmationRadio.addEventListener('click', selectAffirmation)
 receiveMessageButton.addEventListener('click', generateMessage)
 favoriteButton.addEventListener('click', addToFavoriteList)
-
+viewFavoritesButton.addEventListener('click', displayFavoritesview)
+homeButton.addEventListener('click', displayMainPageView)
+// favoritesPageView.addEventListener('click', selectMessage)
+deleteButton.addEventListener('click', deleteMessage)
+// favoritesPageView.addEventListener('click', deleteMessage)
 function selectMantra () {
   return list = mantraList
 }
@@ -65,5 +76,48 @@ function generateMessage () {
 
 function addToFavoriteList () {
   favoriteList.push(currentMessage)
-  console.log(favoriteList)
+  return favoriteList
+}
+
+function displayFavoritesview () {
+  mainPageView.classList.add('hidden')
+  favoritesPageView.classList.remove('hidden')
+  homeButton.classList.remove('hidden')
+  deleteButton.classList.remove('hidden')
+
+  favoritesPageView.innerHTML = ''
+  for (var i = 0; i < favoriteList.length; i++) {
+    favoritesPageView.innerHTML += `
+    <div class='message-space' id= '${favoriteList[i]}'>
+    <input class = 'check-box' type='checkbox' name='message-selector' value= '${favoriteList[i]}'/> ${favoriteList[i]}
+    </div>`
+  }
+
+  return favoritesPageView.innerHTML
+}
+
+function displayMainPageView () {
+  mainPageView.classList.remove('hidden')
+  favoritesPageView.classList.add('hidden')
+  homeButton.classList.add('hidden')
+  deleteButton.classList.add('hidden')
+}
+
+function deleteMessage () {
+  var allCheckBoxes = document.querySelectorAll('.check-box')
+  console.log('allCheckBoxes: ', allCheckBoxes)
+
+  for (var i = 0; i < allCheckBoxes.length; i++) {
+    console.log('allCheckBoxes[i]: ', allCheckBoxes[i])
+    console.log('allCheckBoxes[i].checked: ', allCheckBoxes[i].checked)
+    if (allCheckBoxes[i].checked === true) {
+      var checkBoxValue = allCheckBoxes[i].defaultValue
+    }
+  }
+  for (var i = 0; i < favoriteList.length; i++) {
+    if (checkBoxValue === favoriteList[i]) {
+      favoriteList.splice(i, 1)
+    }
+  }
+  displayFavoritesview()
 }
