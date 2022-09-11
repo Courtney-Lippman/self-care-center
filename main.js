@@ -32,10 +32,8 @@ var mantraList = [
   'I am the sky, the rest is weather.'
 ]
 var favoriteList = []
-var favoriteListWithRadio = []
 var currentMessage
 var list
-var deleteButton
 
 var mantraRadio = document.querySelector('#mantra')
 var affirmationRadio = document.querySelector('#affirmation')
@@ -54,9 +52,8 @@ receiveMessageButton.addEventListener('click', generateMessage)
 favoriteButton.addEventListener('click', addToFavoriteList)
 viewFavoritesButton.addEventListener('click', displayFavoritesview)
 homeButton.addEventListener('click', displayMainPageView)
-// favoritesPageView.addEventListener('click', selectMessage)
 deleteButton.addEventListener('click', deleteMessage)
-// favoritesPageView.addEventListener('click', deleteMessage)
+
 function selectMantra () {
   return list = mantraList
 }
