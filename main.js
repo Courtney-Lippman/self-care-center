@@ -32,6 +32,7 @@ var mantraList = [
   'I am the sky, the rest is weather.'
 ]
 var favoriteList = []
+var favoriteListWithRadio = []
 var currentMessage
 var list
 
@@ -52,8 +53,9 @@ receiveMessageButton.addEventListener('click', generateMessage)
 favoriteButton.addEventListener('click', addToFavoriteList)
 viewFavoritesButton.addEventListener('click', displayFavoritesview)
 homeButton.addEventListener('click', displayMainPageView)
-favoritesPageView.addEventListener('click', selectMessage)
-deleteButton.addEventListener('click', deleteMessage)
+// favoritesPageView.addEventListener('click', selectMessage)
+// deleteButton.addEventListener('click', deleteMessage)
+favoritesPageView.addEventListener('click', deleteMessage)
 function selectMantra () {
   return list = mantraList
 }
@@ -84,7 +86,9 @@ function displayFavoritesview () {
   favoritesPageView.innerHTML = ''
   for (var i = 0; i < favoriteList.length; i++) {
     favoritesPageView.innerHTML += `<div class='message-space'> <input type= 'radio' id= '${favoriteList[i]}' name='select-message' value='${favoriteList[i]}'<label for='${favoriteList[i]}'>${favoriteList[i]}</label> </div>`
+    favoriteListWithRadio.push(favoritesPageView.innerHTML)
   }
+  console.log(favoriteListWithRadio)
   return favoritesPageView.innerHTML
 }
 
@@ -95,10 +99,16 @@ function displayMainPageView () {
   deleteButton.classList.add('hidden')
 }
 
-function selectMessage () {
-  console.log(event.target.parentNode.childNodes)
-}
-
+// function selectMessage () {
+// event.target.parentNode.id
+// }
 function deleteMessage () {
-  console.log('deleted')
+  for (var i = 0; i < favoriteList.length; i++) {
+    console.log('event.target.parentNode: ', event.target.parentNode.id)
+    console.log('favoriteList[i]: ', favoriteList[i])
+    if (favoriteList[i] === event.target.parentNode.id) {
+      favoriteList.splice(i, 1)
+    }
+    // displayFavoritesview()
+  }
 }
