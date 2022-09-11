@@ -102,11 +102,7 @@ function displayMainPageView () {
 
 function deleteMessage () {
   var allCheckBoxes = document.querySelectorAll('.check-box')
-  console.log('allCheckBoxes: ', allCheckBoxes)
-
   for (var i = 0; i < allCheckBoxes.length; i++) {
-    console.log('allCheckBoxes[i]: ', allCheckBoxes[i])
-    console.log('allCheckBoxes[i].checked: ', allCheckBoxes[i].checked)
     if (allCheckBoxes[i].checked === true) {
       var checkBoxValue = allCheckBoxes[i].defaultValue
     }
